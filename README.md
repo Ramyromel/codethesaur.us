@@ -14,6 +14,39 @@ Learn everything you'd need to know about how the project is built, how to insta
 
 Check out our [Installation/Running Locally](https://docs.codethesaur.us/install/quick_start/) page on our documentation.
 
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/codethesaurus/codethesaur.us.git
+   cd codethesaur.us
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. Install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Run the development server:
+   ```bash
+   python manage.py migrate
+   python manage.py runserver
+   ```
+
+5. Open your browser and go to `http://127.0.0.1:8000/` to see the application running.
+
+## Usage
+
+1. Visit the home page to see the available language features.
+2. Use the "Learn a Language" section to compare concepts side-by-side with a language you know and one you don't.
+3. Use the "See a Reference Sheet" section for a quick and easy way to remind yourself how to do something.
+
 ## Contributing
 
 Check out the [Contributing Guide](https://docs.codethesaur.us/contributing/) to learn more about how you can help add more language data, fix bugs, or add features!

@@ -107,7 +107,7 @@ def index(request):
         'title': 'Welcome',
         'languages': meta_data_langs,
         'structures': meta_info.structures,
-        'randomLanguages': random_langs,
+        'randomLanguages': meta_data_langs,
         'description': 'Code Thesaurus: A polyglot developer reference tool'
     }
     return render(request, 'index.html', content)
