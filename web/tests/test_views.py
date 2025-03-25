@@ -123,3 +123,33 @@ class TestViews(TestCase):
         response = self.client.post("/robots.txt")
 
         self.assertEqual(HTTPStatus.METHOD_NOT_ALLOWED, response.status_code)
+
+    def test_api_reference_valid(self):
+        """test if api_reference returns the correct response for valid input"""
+        url = reverse('api_reference', args=['data_types', 'python', '3'])
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['content-type'], 'application/json')
+
+    def test_api_reference_invalid(self):
+        """test if api_reference returns 404 for invalid input"""
+        url = reverse('api_reference', args=['invalid_concept', 'python', '3'])
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 404)
+
+    def test_api_compare_valid(self):
+        """test if api_compare returns the correct response for valid input"""
+        url = reverse('api_compare', args=['data_types', 'python', '3', 'java', '17'])
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['content-type'], 'application/json')
+
+    def test_api_compare_invalid(self):
+        """test if api_compare returns 404 for invalid input"""
+        url = reverse('api_compare', args=['invalid_concept', 'python', '3', 'java', '17'])
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 404)

@@ -3,7 +3,7 @@ import json
 
 from django.test import TestCase
 
-from web.models import Language, MetaInfo, MetaStructure
+from web.models import Language, MetaInfo, MetaStructure, SiteVisit, LookupData
 
 
 class TestMetaStructures(TestCase):
@@ -156,3 +156,32 @@ class TestMetaStructures(TestCase):
         self.assertEqual(language.concept_comment("concept2"), "My comment")
         self.assertEqual(language.concept_comment("concept3"), "")
         self.assertEqual(language.concept_comment("concept4"), "")
+
+    def test_site_visit_creation(self):
+        """test SiteVisit creation"""
+        visit = SiteVisit(
+            url="http://example.com",
+            user_agent="Mozilla/5.0",
+            referer="http://referer.com"
+        )
+        visit.save()
+        self.assertIsNotNone(visit.id)
+
+    def test_lookup_data_creation(self):
+        """test LookupData creation"""
+        visit = SiteVisit(
+            url="http://example.com",
+            user_agent="Mozilla/5.0",
+            referer="http://referer.com"
+        )
+        visit.save()
+        lookup = LookupData(
+            language1="python",
+            version1="3.9",
+            language2="java",
+            version2="17",
+            structure="data_types",
+            site_visit=visit
+        )
+        lookup.save()
+        self.assertIsNotNone(lookup.id)

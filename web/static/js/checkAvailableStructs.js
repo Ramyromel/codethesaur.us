@@ -64,6 +64,4 @@ function setCombination(conc, lang1, lang2=null) {
     }
 }
 
-
-
 main();
