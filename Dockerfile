@@ -1,4 +1,4 @@
-FROM python:3.13.5-slim
+FROM python:3.14.0rc2-slim
 ENV PYTHONBUFFERED=1
 WORKDIR /code
 COPY requirements.txt /code/
