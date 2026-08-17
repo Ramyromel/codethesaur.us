@@ -28,7 +28,7 @@ pytz==2025.2
 referencing==0.37.0
 rpds-py==0.30.0
 six==1.17.0
-sqlparse==0.5.5
+sqlparse==0.6.0
 tinycss2==1.4.0
 toml==0.10.2
 tomli==2.4.0
